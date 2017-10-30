@@ -81,9 +81,9 @@ class NightingaleChart extends React.Component<Props> {
                     )
                   })}
                   <circle
-                      r="8"
+                      r="2"
                       cx="0"
-                      cy="-50"
+                      cy="-55"
                       style={{fill: categoryColorScale(tracks[trackId].category)}}
                       className={"track-milestone " + (isCurrentTrack && !currentMilestoneId ? "track-milestone-current" : "")}
                       onClick={() => this.props.handleTrackMilestoneChangeFn(trackId, 0)} />

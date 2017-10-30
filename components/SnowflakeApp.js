@@ -51,50 +51,106 @@ const emptyState = (): SnowflakeAppState => {
     name: 'Enter Your Name Here',
     title: '',
     milestoneByTrack: {
-      'MOBILE': 0,
-      'WEB_CLIENT': 0,
-      'FOUNDATIONS': 0,
-      'SERVERS': 0,
-      'PROJECT_MANAGEMENT': 0,
-      'COMMUNICATION': 0,
-      'CRAFT': 0,
-      'INITIATIVE': 0,
-      'CAREER_DEVELOPMENT': 0,
-      'ORG_DESIGN': 0,
-      'WELLBEING': 0,
-      'ACCOMPLISHMENT': 0,
-      'MENTORSHIP': 0,
-      'EVANGELISM': 0,
-      'RECRUITING': 0,
-      'COMMUNITY': 0
+      'USER_RESEARCH': 0,
+      'PERSONAS': 0,
+      'USER_JOURNEYS': 0,
+      'SITE_VISITS': 0,
+      'USER_INTERVIEWS': 0,
+      'SHARE_FINDINGS': 0,
+      'ANALYTICS': 0,
+      'EVALUATE_RESEARCH': 0,
+      'USABILITY': 0,
+      'PREDICT': 0,
+      'TEST_PLANNING': 0,
+      'SHARE_RESULTS': 0,
+      'PRIORITISE': 0,
+      'MAPPING_IA': 0,
+      'DOMAIN_MAPPING': 0,
+      'IA_PATTERNS': 0,
+      'VOCABULARY': 0,
+      'IA_PLANNING': 0,
+      'FLOWS': 0,
+      'PATTERNS': 0,
+      'HCI': 0,
+      'MOTION': 0,
+      'IMPLEMENTATION': 0,
+      'DOCUMENTATION': 0,
+      'FUNDAMENTALS': 0,
+      'PRODUCTION': 0,
+      'ILLUSTRATION': 0,
+      'DESIGN_LANGUAGE': 0,
+      'WRITE': 0,
+      'GUIDE': 0,
+      'STYLE_GUIDE': 0,
+      'INTEGRATE': 0,
+      'FIDELITY': 0,
+      'FAST_ITERATION': 0,
+      'BREADTH': 0,
+      'PROTOTYPE': 0,
+      'SCHEDULING': 0,
+      'STAKEHOLDER_MANAGEMENT': 0,
+      'CRITIQUE': 0,
+      'PROFESSIONAL_DEVELOPMENT': 0,
+      'BOND': 0,
+      'CULTURE': 0,
+      'ADVOCATE': 0,
+      'EVANGELISE': 0
     },
-    focusedTrackId: 'MOBILE'
+    focusedTrackId: 'USER_RESEARCH'
   }
 }
 
 const defaultState = (): SnowflakeAppState => {
   return {
-    name: 'Cersei Lannister',
+    name: 'Nicola Horlor',
     title: 'Staff Engineer',
     milestoneByTrack: {
-      'MOBILE': 1,
-      'WEB_CLIENT': 2,
-      'FOUNDATIONS': 3,
-      'SERVERS': 2,
-      'PROJECT_MANAGEMENT': 4,
-      'COMMUNICATION': 1,
-      'CRAFT': 1,
-      'INITIATIVE': 4,
-      'CAREER_DEVELOPMENT': 3,
-      'ORG_DESIGN': 2,
-      'WELLBEING': 0,
-      'ACCOMPLISHMENT': 4,
-      'MENTORSHIP': 2,
-      'EVANGELISM': 2,
-      'RECRUITING': 3,
-      'COMMUNITY': 0
+      'USER_RESEARCH': 0,
+      'PERSONAS': 0,
+      'USER_JOURNEYS': 0,
+      'SITE_VISITS': 0,
+      'USER_INTERVIEWS': 0,
+      'SHARE_FINDINGS': 0,
+      'ANALYTICS': 0,
+      'EVALUATE_RESEARCH': 0,
+      'USABILITY': 0,
+      'PREDICT': 0,
+      'TEST_PLANNING': 0,
+      'SHARE_RESULTS': 0,
+      'PRIORITISE': 0,
+      'MAPPING_IA': 0,
+      'DOMAIN_MAPPING': 0,
+      'IA_PATTERNS': 0,
+      'VOCABULARY': 0,
+      'IA_PLANNING': 0,
+      'FLOWS': 0,
+      'PATTERNS': 0,
+      'HCI': 0,
+      'MOTION': 0,
+      'IMPLEMENTATION': 0,
+      'DOCUMENTATION': 0,
+      'FUNDAMENTALS': 0,
+      'PRODUCTION': 0,
+      'ILLUSTRATION': 0,
+      'DESIGN_LANGUAGE': 0,
+      'WRITE': 0,
+      'GUIDE': 0,
+      'STYLE_GUIDE': 0,
+      'INTEGRATE': 0,
+      'FIDELITY': 0,
+      'FAST_ITERATION': 0,
+      'BREADTH': 0,
+      'PROTOTYPE': 0,
+      'SCHEDULING': 0,
+      'STAKEHOLDER_MANAGEMENT': 0,
+      'CRITIQUE': 0,
+      'PROFESSIONAL_DEVELOPMENT': 0,
+      'BOND': 0,
+      'CULTURE': 0,
+      'ADVOCATE': 0,
+      'EVANGELISE': 0
     },
-    focusedTrackId: 'MOBILE'
+    focusedTrackId: 'USER_RESEARCH'
   }
 }
 
@@ -156,9 +212,9 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
             text-decoration: none;
           }
         `}</style>
-        <div style={{margin: '19px auto 0', width: 142}}>
+        <div style={{margin: '19px 0 24px', width: '100%'}}>
           <a href="https://vendhq.com/" target="_blank">
-            <Wordmark />
+            <Wordmark /> Product Designer
           </a>
         </div>
         <div style={{display: 'flex'}}>
@@ -171,18 +227,16 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
                   onChange={e => this.setState({name: e.target.value})}
                   placeholder="Name"
                   />
-              <TitleSelector
-                  milestoneByTrack={this.state.milestoneByTrack}
-                  currentTitle={this.state.title}
-                  setTitleFn={(title) => this.setTitle(title)} />
             </form>
-            <PointSummaries milestoneByTrack={this.state.milestoneByTrack} />
-            <LevelThermometer milestoneByTrack={this.state.milestoneByTrack} />
-          </div>
-          <div style={{flex: 0}}>
             <NightingaleChart
                 milestoneByTrack={this.state.milestoneByTrack}
                 focusedTrackId={this.state.focusedTrackId}
+                handleTrackMilestoneChangeFn={(track, milestone) => this.handleTrackMilestoneChange(track, milestone)} />
+          </div>
+          <div style={{flex: 1}}>
+            <Track
+                milestoneByTrack={this.state.milestoneByTrack}
+                trackId={this.state.focusedTrackId}
                 handleTrackMilestoneChangeFn={(track, milestone) => this.handleTrackMilestoneChange(track, milestone)} />
           </div>
         </div>
@@ -195,10 +249,6 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
             selectPrevTrackFn={this.shiftFocusedTrack.bind(this, -1)}
             increaseFocusedMilestoneFn={this.shiftFocusedTrackMilestoneByDelta.bind(this, 1)}
             decreaseFocusedMilestoneFn={this.shiftFocusedTrackMilestoneByDelta.bind(this, -1)} />
-        <Track
-            milestoneByTrack={this.state.milestoneByTrack}
-            trackId={this.state.focusedTrackId}
-            handleTrackMilestoneChangeFn={(track, milestone) => this.handleTrackMilestoneChange(track, milestone)} />
         <div style={{display: 'flex', paddingBottom: '20px'}}>
           <div style={{flex: 1}}>
             <a href="#" onClick={() => this.setState(emptyState())}>Reset</a>

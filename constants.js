@@ -2,43 +2,108 @@
 import * as d3 from "d3";
 
 export type TrackId =
-  | "MOBILE"
-  | "WEB_CLIENT"
-  | "FOUNDATIONS (PLATFORM)"
-  | "SERVERS & API"
-  | "PROJECT_MANAGEMENT"
-  | "COMMUNICATION"
-  | "CRAFT"
-  | "INITIATIVE"
-  | "CAREER_DEVELOPMENT"
-  | "ORG_DESIGN"
-  | "WELLBEING"
-  | "ACCOMPLISHMENT"
-  | "MENTORSHIP"
-  | "EVANGELISM"
-  | "RECRUITING"
-  | "COMMUNITY";
-export type Milestone = 0 | 1 | 2 | 3 | 4 | 5;
+| "USER_RESEARCH"
+| "PERSONAS"
+| "USER_JOURNEYS"
+| "SITE_VISITS"
+| "USER_INTERVIEWS"
+| "SHARE_FINDINGS"
+| "ANALYTICS"
+| "EVALUATE_RESEARCH"
+| "USABILITY"
+| "PREDICT"
+| "TEST_PLANNING"
+| "SHARE_RESULTS"
+| "PRIORITISE"
+| "MAPPING_IA"
+| "DOMAIN_MAPPING"
+| "IA_PATTERNS"
+| "VOCABULARY"
+| "IA_PLANNING"
+| "FLOWS"
+| "PATTERNS"
+| "HCI"
+| "MOTION"
+| "IMPLEMENTATION"
+| "DOCUMENTATION"
+| "FUNDAMENTALS"
+| "PRODUCTION"
+| "ILLUSTRATION"
+| "DESIGN_LANGUAGE"
+| "WRITE"
+| "GUIDE"
+| "STYLE_GUIDE"
+| "INTEGRATE"
+| "FIDELITY"
+| "FAST_ITERATION"
+| "BREADTH"
+| "PROTOTYPE"
+| "SCHEDULING"
+| "STAKEHOLDER_MANAGEMENT"
+| "CRITIQUE"
+| "PROFESSIONAL_DEVELOPMENT"
+| "BOND"
+| "CULTURE"
+| "ADVOCATE"
+| "EVANGELISE";
+
+export type Milestone = 0  |1 | 2 | 3 | 4 | 5;
 
 export type MilestoneMap = {
-  "MOBILE": Milestone,
-  "WEB_CLIENT": Milestone,
-  "FOUNDATIONS (PLATFORM)": Milestone,
-  "SERVERS & API": Milestone,
-  "PROJECT_MANAGEMENT": Milestone,
-  "COMMUNICATION": Milestone,
-  "CRAFT": Milestone,
-  "INITIATIVE": Milestone,
-  "CAREER_DEVELOPMENT": Milestone,
-  "ORG_DESIGN": Milestone,
-  "WELLBEING": Milestone,
-  "ACCOMPLISHMENT": Milestone,
-  "MENTORSHIP": Milestone,
-  "EVANGELISM": Milestone,
-  "RECRUITING": Milestone,
-  "COMMUNITY": Milestone
+  "USER_RESEARCH": Milestone,
+  "PERSONAS": Milestone,
+  "USER_JOURNEYS": Milestone,
+  "SITE_VISITS": Milestone,
+  "USER_INTERVIEWS": Milestone,
+  "SHARE_FINDINGS": Milestone,
+  "ANALYTICS": Milestone,
+  "EVALUATE_RESEARCH": Milestone,
+  "USABILITY": Milestone,
+  "PREDICT": Milestone,
+  "TEST_PLANNING": Milestone,
+  "SHARE_RESULTS": Milestone,
+  "PRIORITISE": Milestone,
+  "MAPPING_IA": Milestone,
+  "DOMAIN_MAPPING": Milestone,
+  "IA_PATTERNS": Milestone,
+  "VOCABULARY": Milestone,
+  "IA_PLANNING": Milestone,
+  "FLOWS": Milestone,
+  "PATTERNS": Milestone,
+  "HCI": Milestone,
+  "MOTION": Milestone,
+  "IMPLEMENTATION": Milestone,
+  "DOCUMENTATION": Milestone,
+  "FUNDAMENTALS": Milestone,
+  "PRODUCTION": Milestone,
+  "ILLUSTRATION": Milestone,
+  "DESIGN_LANGUAGE": Milestone,
+  "WRITE": Milestone,
+  "GUIDE": Milestone,
+  "STYLE_GUIDE": Milestone,
+  "INTEGRATE": Milestone,
+  "FIDELITY": Milestone,
+  "FAST_ITERATION": Milestone,
+  "BREADTH": Milestone,
+  "PROTOTYPE": Milestone,
+  "SCHEDULING": Milestone,
+  "STAKEHOLDER_MANAGEMENT": Milestone,
+  "CRITIQUE": Milestone,
+  "PROFESSIONAL_DEVELOPMENT": Milestone,
+  "BOND": Milestone,
+  "CULTURE": Milestone,
+  "ADVOCATE": Milestone,
+  "EVANGELISE": Milestone
 };
 export const milestones = [0, 1, 2, 3, 4, 5];
+
+export const COMPETENCY = [
+  "Has a basic understanding of this competency",
+  "Demonstrates this competency under supervision or with encouragment",
+  "Demonstrates this competency independently",
+  "Can supervise other people in this competency, and encourages others to develop this competency",
+  "Develops new ways of applying this competency"
+  ];
 
 export const milestoneToPoints = (milestone: Milestone): number => {
   switch (milestone) {
@@ -91,32 +156,55 @@ export type Track = {
 };
 
 type Tracks = {|
-  "MOBILE": Track,
-  "WEB_CLIENT": Track,
-  "FOUNDATIONS (PLATFORM)": Track,
-  "SERVERS & API": Track,
-  "PROJECT_MANAGEMENT": Track,
-  "COMMUNICATION": Track,
-  "CRAFT": Track,
-  "INITIATIVE": Track,
-  "CAREER_DEVELOPMENT": Track,
-  "ORG_DESIGN": Track,
-  "WELLBEING": Track,
-  "ACCOMPLISHMENT": Track,
-  "MENTORSHIP": Track,
-  "EVANGELISM": Track,
-  "RECRUITING": Track,
-  "COMMUNITY": Track
+  "USER_RESEARCH": Track,
+  "PERSONAS": Track,
+  "USER_JOURNEYS": Track,
+  "SITE_VISITS": Track,
+  "USER_INTERVIEWS": Track,
+  "SHARE_FINDINGS": Track,
+  "ANALYTICS": Track,
+  "EVALUATE_RESEARCH": Track,
+  "USABILITY": Track,
+  "PREDICT": Track,
+  "TEST_PLANNING": Track,
+  "SHARE_RESULTS": Track,
+  "PRIORITISE": Track,
+  "MAPPING_IA": Track,
+  "DOMAIN_MAPPING": Track,
+  "IA_PATTERNS": Track,
+  "VOCABULARY": Track,
+  "IA_PLANNING": Track,
+  "FLOWS": Track,
+  "PATTERNS": Track,
+  "HCI": Track,
+  "MOTION": Track,
+  "IMPLEMENTATION": Track,
+  "DOCUMENTATION": Track,
+  "FUNDAMENTALS": Track,
+  "PRODUCTION": Track,
+  "ILLUSTRATION": Track,
+  "DESIGN_LANGUAGE": Track,
+  "WRITE": Track,
+  "GUIDE": Track,
+  "STYLE_GUIDE": Track,
+  "INTEGRATE": Track,
+  "FIDELITY": Track,
+  "FAST_ITERATION": Track,
+  "BREADTH": Track,
+  "PROTOTYPE": Track,
+  "SCHEDULING": Track,
+  "STAKEHOLDER_MANAGEMENT": Track,
+  "CRITIQUE": Track,
+  "PROFESSIONAL_DEVELOPMENT": Track,
+  "BOND": Track,
+  "CULTURE": Track,
+  "ADVOCATE": Track,
+  "EVANGELISE": Track
 |};
 
-export const tracks: Tracks = {
-  MOBILE: {
-    displayName: "Mobile",
-    category: "A",
-    description: "Develops expertise in native mobile platform engineering, such as iOS or Android",
-    milestones: [
+export const MILESTONES_SHARED = [
       {
-        summary: "Works effectively within established iOS or Android architectures, following current best practices",
+        summary: COMPETENCY[0],
         signals: [
           "Delivers features requiring simple local modifications",
           "Adds simple actions that call server endpoints",
@@ -129,7 +217,7 @@ export const tracks: Tracks = {
         ]
       },
       {
-        summary: "Develops new instances of existing architecture, or minor improvements to existing architecture",
+        summary: COMPETENCY[1],
         signals: [
           "Defines new useful and appropriate proto-generated objects",
           "Creates simple new activities on Android",
@@ -142,7 +230,7 @@ export const tracks: Tracks = {
         ]
       },
       {
-        summary: "Designs major new features and demonstrates a nuanced understanding of mobile platform constraints",
+        summary: COMPETENCY[2],
         signals: [
           "Implements complex features with a large product surface area",
           "Works effectively with  Android reactive programming framework",
@@ -155,7 +243,7 @@ export const tracks: Tracks = {
         ]
       },
       {
-        summary: "Builds complex, reusable architectures that pioneer best practices and enable engineers to work more effectively",
+        summary: COMPETENCY[3],
         signals: [
           "Pioneers architecture migration strategies that reduce programmer burden",
           "Fixes subtle memory management issues",
@@ -168,7 +256,7 @@ export const tracks: Tracks = {
         ]
       },
       {
-        summary: "Is an industry-leading expert in mobile engineering or sets strategic mobile direction for an eng team",
+        summary: COMPETENCY[4],
         signals: [
           "Defines long-term goals and ensures active projects are in service of them",
           "Designs and builds innovative, industry-leading UI interactions",
@@ -180,1103 +268,317 @@ export const tracks: Tracks = {
           "Pioneered application-level abstractions for multi-app environment"
         ]
       }
-    ]
-  },
+    ];
 
-  WEB_CLIENT: {
-    displayName: "Web client",
+export const tracks: Tracks = {
+  USER_RESEARCH: {
+    displayName: "User Research",
     category: "A",
-    description: "Develops expertise in web client technologies, such as HTML, CSS, and JavaScript",
-    milestones: [
-      {
-        summary: "Works effectively within established web client architectures, following current best practices",
-        signals: [
-          "Makes minor modifications to existing screens",
-          "Fixes simple design quality issues",
-          "Uses CSS appropriately, following style guide"
-        ],
-        examples: [
-          "Implemented sticky footer on the post page",
-          "Hooked up the action to dismiss a post from a stream",
-          "Built PaymentHistory screen using ResponseScreen"
-        ]
-      },
-      {
-        summary: "Develops new instances of existing architecture, or minor improvements to existing architecture",
-        signals: [
-          "Makes sensible abstractions based on template and code patterns",
-          "Specs and builds interactive components independently",
-          "Prototypes simple new features quickly"
-        ],
-        examples: [
-          "Built credit card input component",
-          "Created shared buttons template",
-          "Built modal system"
-        ]
-      },
-      {
-        summary: "Designs major new features and demonstrates a nuanced understanding of browser constraints",
-        signals: [
-          "Provides useful design feedback and suggests feasible alternatives",
-          "Performs systemic tasks to significantly minimise bundle size",
-          "Acts a caretaker for all of web client code"
-        ],
-        examples: [
-          "Designed font loading strategy for Medium",
-          "Researched utility of service workers for Medium",
-          "Designed and implemented ResponseScreen"
-        ]
-      },
-      {
-        summary: "Builds complex, reusable architectures that pioneer best practices and enable engineers to work more effectively",
-        signals: [
-          "Pioneers architecture migrations that reduce programmer burden",
-          "Implements complex UI transitions that bring delight",
-          "Makes architectural decisions that eliminate entire classes of bugs"
-        ],
-        examples: [
-          "Designed Medium's post morpher and delta system",
-          "Implemented Medium's scrolling text over image blur",
-          "Designed and pioneered proto-based model storage"
-        ]
-      },
-      {
-        summary: "Is an industry-leading expert in web client or sets strategic web client direction for an eng team",
-        signals: [
-          "Invents new techniques to innovate and overcome browser constraints",
-          "Identifies and solved systemic problems with current architecture",
-          "Defines a long-term vision for web client and ensures projects are in service of it"
-        ],
-        examples: [
-          "Invented CSS in JS",
-          "Defined and drove migration strategy to Lite",
-          "Implemented unidirectional data flow to completion"
-        ]
-      }
-    ]
+    description: "Explain the importance of user research, not just before the software is designed but also during design and after deployment.",
+    milestones: MILESTONES_SHARED
   },
 
-  FOUNDATIONS: {
-    displayName: "Foundations",
+  PERSONAS: {
+    displayName: "Personas",
     category: "A",
-    description: "Develops expertise in foundational systems, such as deployments, pipelines, databases and machine learning",
-    milestones: [
-      {
-        summary: "Works effectively within established structures, following current best practices",
-        signals: [
-          "Writes thorough postmortems for service outages",
-          "Makes simple configuration changes to services",
-          "Performs backfills safely and effectively, without causing pages"
-        ],
-        examples: [
-          "Made safe and effective Ansible changes",
-          "Implemented new ETL pipelines based on existing ones",
-          "Resolved out of disk errors independently"
-        ]
-      },
-      {
-        summary: "Develops new instances of existing architecture, or minor improvements to existing architecture",
-        signals: [
-          "Made minor version upgrades to technologies",
-          "Builds machine learning jobs within the ML framework",
-          "Triages service issues correctly and independently"
-        ],
-        examples: [
-          "Upgraded NodeJS from 8.0 to 8.1.1",
-          "Built custom packages for RPMs",
-          "Improved ETL efficiency by improving Dynamo to S3 loading"
-        ]
-      },
-      {
-        summary: "Designs standalone systems of moderate complexity, or major new features in existing systems",
-        signals: [
-          "Acts as primary maintainer for existing critical systems",
-          "Designs moderately complex systems",
-          "Makes major version upgrades to libraries"
-        ],
-        examples: [
-          "Designed Ansible configuration management",
-          "Built Medium's realtime stats pipeline",
-          "Designed flexible framework for writing machine learning jobs"
-        ]
-      },
-      {
-        summary: "Builds complex, reusable architectures that pioneer best practices for other engineers, or multi-system services",
-        signals: [
-          "Designs complex projects that encompass multiple systems and technologies",
-          "Demonstrates deep knowledge of foundational systems",
-          "Introduces new databases and technologies to meet underserved needs"
-        ],
-        examples: [
-          "Designed and built BBFD",
-          "Designed AWS configuration management",
-          "Introduced Kinesis and pioneered streaming events pipeline"
-        ]
-      },
-      {
-        summary: "Is an industry-leading expert in foundational engineering or sets strategic foundational direction for an eng team",
-        signals: [
-          "Designs transformational projects in service of long-term goals",
-          "Defines the strategic vision for foundational work and supporting technologies",
-          "Invents industry-leading techniques to solve complex problems"
-        ],
-        examples: [
-          "Invented a novel ML technique that advanced the state of the art",
-          "Defined and developed Medium's continuous delivery strategy",
-          "Developed and implemented HA strategy"
-        ]
-      }
-    ]
+    description: "Identify the potential users of the software and create personas for them. This includes understanding their needs and goals.",
+    milestones: MILESTONES_SHARED
   },
 
-  SERVERS: {
-    displayName: "Servers",
+  USER_JOURNEYS: {
+    displayName: "User Journeys",
     category: "A",
-    description: "Develops expertise in server side engineering, using technologies such as Go, NodeJS, or Scala",
-    milestones: [
-      {
-        summary: "Works effectively within established server side frameworks, following current best practices",
-        signals: [
-          "Adds NodeJS endpoints using layers architecture",
-          "Adds golang endpoints using Gotham architecture",
-          "Makes minor server changes to support client needs"
-        ],
-        examples: [
-          "Added IFTTT trigger for new bookmark to medium2",
-          "Added delete audio route to Buggle",
-          "Queried a Dynamo LSI appropriately"
-        ]
-      },
-      {
-        summary: "Develops new instances of existing architecture, or minor improvements to existing architecture",
-        signals: [
-          "Assesses correctness and utility of existing code and avoids blind copy-pasting",
-          "Generalizes code when appropriate",
-          "Determines data needs from product requirements"
-        ],
-        examples: [
-          "Identified need for new index on Dynamo",
-          "Acted as caretaker for routes protos",
-          "Updated Facebook API version and codebase dependencies"
-        ]
-      },
-      {
-        summary: "Designs standalone systems of moderate complexity, or major new features in existing systems",
-        signals: [
-          "Acts as primary maintainer for existing critical systems",
-          "Integrates third party services effectively",
-          "Writes playbooks for new service maintenance"
-        ],
-        examples: [
-          "Implemented Google Auth login to Medium",
-          "Implemented payments integration with Stripe",
-          "Built Textshots server"
-        ]
-      },
-      {
-        summary: "Builds complex, reusable architectures that pioneer best practices for other engineers, or multi-system services",
-        signals: [
-          "Delivers complex systems that achieve their goals",
-          "Avoids subtle architectural mistakes when considering new systems",
-          "Makes appropriate buy vs build choices"
-        ],
-        examples: [
-          "Designed Medium's ranked feed architecture",
-          "Designed custom domains architecture",
-          "Created Gotham framework for creating Go services"
-        ]
-      },
-      {
-        summary: "Is an industry-leading expert in server side engineering or sets strategic server side direction for an eng team",
-        signals: [
-          "Designs transformational projects of significant complexity and scope",
-          "Makes decisions that have positive, long term, wide ranging consequences",
-          "Identifies and solves systemic problems with current architecture"
-        ],
-        examples: [
-          "Researched, vetted, and selected Go as Medium's statically typed language",
-          "Defined microservices architecture and medium2 migration plan",
-          "Defined and implemented proprietary IP core to the company's success"
-        ]
-      }
-    ]
+    description: "Map the journey that each persona takes to meet their goals, including actions taken outside the software. Identify areas of improvement, and communicate the journey to the rest of the company so they can understand where they can add value to it.",
+    milestones: MILESTONES_SHARED
   },
 
-  PROJECT_MANAGEMENT: {
-    displayName: "Project management",
+  SITE_VISITS: {
+    displayName: "Site Visits",
+    category: "A",
+    description: "Help plan site visits with end users to make sure we sample based upon what we want to learn, and make sure that we aren't missing out on learning from key personas.",
+    milestones: MILESTONES_SHARED
+  },
+
+  USER_INTERVIEWS: {
+    displayName: "User Interviews",
+    category: "A",
+    description: "Structure an effective interview that gets beyond the surface opinions (what users say) to reveal user goals (what users want).",
+    milestones: MILESTONES_SHARED
+  },
+
+  SHARE_FINDINGS: {
+    displayName: "Share Findings",
+    category: "A",
+    description: "Record, analyse and present the data from a site visit to the wider team.",
+    milestones: MILESTONES_SHARED
+  },
+
+  ANALYTICS: {
+    displayName: "Analytics",
+    category: "A",
+    description: "Understand how to measure effectively and the limitations of existing analytics. Analyse and interpret data from analytics, user surveys and customer support records.",
+    milestones: MILESTONES_SHARED
+  },
+
+  EVALUATE_RESEARCH: {
+    displayName: "Evaluate Research",
+    category: "A",
+    description: "Critically evaluate past research and provide guidance for upcoming research.",
+    milestones: MILESTONES_SHARED
+  },
+
+  USABILITY: {
+    displayName: "Usability Evaluation",
     category: "B",
-    description: "Delivers well-scoped programs of work that meet their goals, on time, to budget, harmoniously",
-    milestones: [
-      {
-        summary: "Effectively delivers individual tasks",
-        signals: [
-          "Estimates small tasks accurately",
-          "Delivers tightly-scoped projects efficiently",
-          "Writes effective technical specs outlining approach"
-        ],
-        examples: [
-          "Wrote the technical spec for Quick User Switching",
-          "Delivered low stock warning for iOS",
-          "Delivered new User badge"
-        ]
-      },
-      {
-        summary: "Effectively delivers small personal projects",
-        signals: [
-          "Performs research and considers alternative approaches",
-          "Balances pragmatism and polish appropriately",
-          "Defines and hits interim milestones"
-        ],
-        examples: [
-          "Delivered basic promotions API endpoint",
-          "Delivered new View Customer design",
-          "Executed the multiple image uploader for products"
-        ]
-      },
-      {
-        summary: "Effectively delivers projects through a small team",
-        signals: [
-          "Delegates tasks to others appropriately",
-          "Integrates business needs into project planning",
-          "Chooses appropriate project management strategy based on context"
-        ],
-        examples: [
-          "Ran project retro to assess improvement opportunities",
-          "Completed launch checklist unprompted for well controlled rollout",
-          "Facilitated project kickoff meeting to get buy-in"
-        ]
-      },
-      {
-        summary: "Effectively delivers projects through a large team, or with a significant amount of stakeholders or complexity",
-        signals: [
-          "Finds ways to deliver requested scope faster, and prioritizes backlog",
-          "Manages dependencies on other projects and teams",
-          "Leverages recognition of repeated project patterns"
-        ],
-        examples: [
-          "Oversaw delivery of Promotions",
-          "Built the features service",
-          "Involved marketing, legal, and appropriate functions at project start"
-        ]
-      },
-      {
-        summary: "Manages major company pushes delivered by multiple teams",
-        signals: [
-          "Considers external constraints and business objectives when planning",
-          "Leads teams of teams, and coordinates effective cross-functional collaboration",
-          "Owns a key company metric"
-        ],
-        examples: [
-          "Managed migration to AWS",
-          "Managed delivery of Christmas 2017 priorities",
-          "Delivered multi-month engineering project on time"
-        ]
-      }
-    ]
+    description: "Use established usability principles and guidelines to predict likely problems in user interfaces before testing.",
+    milestones: MILESTONES_SHARED
   },
 
-  COMMUNICATION: {
-    displayName: "Communication",
+  PREDICT: {
+    displayName: "Predicting Problems",
     category: "B",
-    description: "Shares the right amount of information with the right people, at the right time, and listens effectively",
-    milestones: [
-      {
-        summary: "Communicates effectively to close stakeholders when called upon, and incorporates constructive feedback",
-        signals: [
-          "Communicates project status clearly and effectively",
-          "Collaborates with others with empathy",
-          "Asks for help at the appropriate juncture"
-        ],
-        examples: [
-          "Updated oncall-engineers before running a resource-intensive task.",
-          "Updated issue status changes in Jira promptly",
-          "Gave thoughtful meeting check-in and check-out comments"
-        ]
-      },
-      {
-        summary: "Communicates with the wider team appropriately, focusing on timeliness and good quality conversations",
-        signals: [
-          "Practises active listening and suspension of attention",
-          "Ensures stakeholders are aware of current blockers",
-          "Chooses the appropriate tools for accurate and timely communication"
-        ],
-        examples: [
-          "Received and integrated critical feedback positively",
-          "Created cross-team Slack channel for payments work",
-          "Spoke to domain experts before writing spec"
-        ]
-      },
-      {
-        summary: "Proactively shares information, actively solicits feedback, and facilitates communication for multiple stakeholders",
-        signals: [
-          "Resolves communication difficulties between others",
-          "Anticipates and shares schedule deviations in plenty of time",
-          "Manages project stakeholder expectations effectively"
-        ],
-        examples: [
-          "Directed team response effectively during outages",
-          "Gave a substantial Eng All Hands presentation on Redux",
-          "Gave notice of upcoming related work in Band Practise"
-        ]
-      },
-      {
-        summary: "Communicates complex ideas skillfully and with nuance, and establishes alignment within the wider organization",
-        signals: [
-          "Communicates project risk and tradeoffs skillfully and with nuance",
-          "Contextualizes and clarifies ambiguous direction and strategy for others",
-          "Negotiates resourcing compromises with other teams"
-        ],
-        examples: [
-          "Lead off-site workshop on interviewing",
-          "Implemented Vend's engineering growth framework",
-          "Aligned the entire organization around the release of Promotions"
-        ]
-      },
-      {
-        summary: "Influences outcomes at the highest level, moves beyond mere broadcasting, and sets best practices for others",
-        signals: [
-          "Defines processes for clear communication for the entire team",
-          "Shares the right amount of information with the right people, at the right time",
-          "Develops and delivers plans to execs, the board, and outside investors"
-        ],
-        examples: [
-          "Organized half year check-in company offsite",
-          "Created the communication plan for a large organizational change",
-          "Presented to the board about key company metrics and projects"
-        ]
-      }
-    ]
+    description: "Understand how to write a hypothesis and how to control and measure variables.",
+    milestones: MILESTONES_SHARED
   },
 
-  CRAFT: {
-    displayName: "Craft",
+  SHARE_RESULTS: {
+    displayName: "Share Results",
     category: "B",
-    description: "Embodies and promotes practices to ensure excellent quality products and services",
-    milestones: [
-      {
-        summary: "Delivers consistently good quality work",
-        signals: [
-          "Tests new code thoroughly, both locally, and in production once shipped",
-          "Writes tests for every new feature and bug fix",
-          "Writes clear comments and documentation"
-        ],
-        examples: [
-          "Caught a bug while playing with a feature before it went live",
-          "Landed non-trivial PR with no caretaker comments",
-          "Wrote good hermetic tests for a microservice"
-        ]
-      },
-      {
-        summary: "Increases the robustness and reliability of codebases, and devotes time to polishing products and systems",
-        signals: [
-          "Refactors existing code to make it more testable",
-          "Adds tests for uncovered areas",
-          "Deletes unnecessary code and deprecates proactively when safe to do so"
-        ],
-        examples: [
-          "Requested tests for a PR when acting as reviewer",
-          "Removed unused feature flags in the monoliph",
-          "Fixed a TODO for someone else in the codebase"
-        ]
-      },
-      {
-        summary: "Improves others' ability to deliver great quality work",
-        signals: [
-          "Implements systems that enable better testing",
-          "Gives thoughtful code reviews as a domain expert",
-          "Adds tooling to improve code quality"
-        ],
-        examples: [
-          "Improved build pipeline to run the same volume of tests faster",
-          "Improved dev container build speed and moved all containers from Quay to ECR",
-          "Created a shared library after seeing multiple projects doing the same thing "
-        ]
-      },
-      {
-        summary: "Advocates for and models great quality with proactive actions, and tackles difficult and subtle system issues",
-        signals: [
-          "Builds systems so as to eliminate entire classes of programmer error",
-          "Focuses the team on quality with regular reminders",
-          "Coordinates support team ticket volume meetings and prioritises findings"
-        ],
-        examples: [
-          "Implemented a strategy to attack flakey build pipelines",
-          "Iterated repeatedly to develop Medium's underlines solution",
-          "Defined and oversaw plan for closing Heartbleed vulnerability"
-        ]
-      },
-      {
-        summary: "Enables and encourages the entire organization to make quality a central part of the development process",
-        signals: [
-          "Defines policies for the engineering org that encourage quality work",
-          "Identifies and eliminates single points of failure throughout the organization",
-          "Secures time and resources from execs to support great quality"
-        ],
-        examples: [
-          "Negotiated resources for Standardisation Sprints",
-          "",
-          "Implemented compensation for on-call rotation"
-        ]
-      }
-    ]
+    description: "Record, analyse and present the data from usability tests to the wider team.",
+    milestones: MILESTONES_SHARED
   },
 
-  INITIATIVE: {
-    displayName: "Initiative",
+  TEST_PLANNING: {
+    displayName: "Plan and Test",
     category: "B",
-    description: "Challenges the status quo and effects positive organizational change outside of mandated work",
-    milestones: [
-      {
-        summary: "Identifies opportunities for organizational change or product improvements",
-        signals: [
-          "Writes Confluence page about improvement opportunities",
-          "Raises meaningful tensions in tactical meetings",
-          "Asks leadership team insightful questions at AMA "
-        ],
-        examples: [
-          "Wrote about problems with ECS on Confluence",
-          "",
-          "Reported a site issue in Github"
-        ]
-      },
-      {
-        summary: "Causes change to positively impact a few individuals or minor improvement to an existing product or service",
-        signals: [
-          "Picks bugs off the backlog proactively when blocked elsewhere",
-          "Makes design quality improvements unprompted",
-          "Takes on trust and safety tasks proactively when blocked elsewhere"
-        ],
-        examples: [
-          "Advocated on own behalf for a change in role",
-          "Implemented feature service API in Go Common",
-          "Audited web client performance in Chrome and proposed fixes"
-        ]
-      },
-      {
-        summary: "Causes change to positively impact an entire team or instigates a minor feature or service",
-        signals: [
-          "Demonstrates concepts proactively with prototypes",
-          "Fixes complicated bugs outside of regular domain",
-          "Takes ownership of systems that nobody owns or wants"
-        ],
-        examples: [
-          "Defined style guide to resolve style arguments",
-          "Proposed and implemented at-mentions prototype",
-          "Made significant improvments to Monoliph Jenkins pipeline, unprompted"
-        ]
-      },
-      {
-        summary: "Effects change that has a substantial positive impact on the engineering organization or a major product impact",
-        signals: [
-          "Champions and pioneers new technologies to solve new classes of problem",
-          "Exemplifies grit and determination in the face of persistent obstacles",
-          "Instigates major new features, services, or architectures"
-        ],
-        examples: [
-          "Created the interviewing rubric and booklet",
-          "Implemented and secured support for 2FA login",
-          "Migrated go-common to individual repos for maintainability"
-        ]
-      },
-      {
-        summary: "Effects change that has a substantial positive impact on the whole company",
-        signals: [
-          "Creates a new function to solve systemic issues",
-          "Galvanizes the entire company and garners buy in for a new strategy",
-          "Changes complex organizational processes"
-        ],
-        examples: [
-          "Migrated team structure from Solutions to Product+Engineering",
-          "Built Scanner prototype and convinced company to launch it",
-          "Convinced leadership and engineering org to move from Rackspace to AWS"
-        ]
-      }
-    ]
+    description: "Plan and administer the appropriate type of usability evaluation (e.g. moderated vs. unmoderated test, lab vs. remote test, usability testing vs. expert review, usability testing vs. A/B test, usability testing vs. survey).",
+    milestones: MILESTONES_SHARED
   },
 
-  CAREER_DEVELOPMENT: {
-    displayName: "Career development",
+  PRIORITISE: {
+    displayName: "Prioritise Action",
+    category: "B",
+    description: "Prioritise usability problems based upon evidence.",
+    milestones: MILESTONES_SHARED
+  },
+
+  MAPPING_IA: {
+    displayName: "Information Architecture",
     category: "C",
-    description: "Provides strategic support to engineers to help them build the career they want",
-    milestones: [
-      {
-        summary: "Gives insight into opportunities and helps identify individuals' strengths and weaknesses",
-        signals: [
-          "Advocates on behalf and in defense of a group member",
-          "Shares opportunities for improvements and recognises achievements",
-          "Explains appropriate available industry paths"
-        ],
-        examples: [
-          "Collected and delivered feedback",
-          "Discussed career options and areas of interest informally",
-          "Mentored an Intern"
-        ]
-      },
-      {
-        summary: "Formally supports and advocates for one person and provides tools to help them solve career problems",
-        signals: [
-          "Ensure a team member has an appropriate role on their team",
-          "Offers effective career advice to team members, without being prescriptive",
-          "Creates space for people to talk through challenges"
-        ],
-        examples: [
-          "Set up and attended regular, constructive 1:1s ",
-          "Provided coaching on how to have difficult conversations",
-          "Taught team members the GROW model"
-        ]
-      },
-      {
-        summary: "Inspires and retains a small group of people and actively pushes them to stretch themselves",
-        signals: [
-          "Discusses paths, and creates plans for personal and professional growth",
-          "Advocates to align people with appropriate roles within organization",
-          "Works with team leads to elevate emerging leaders"
-        ],
-        examples: [
-          "Reviewed individual team progression regularly",
-          "Suggested appropriate team member for a new position",
-          "Arranged a requested switch of discipline for a group member"
-        ]
-      },
-      {
-        summary: "Manages interactions and processes between groups, promoting best practices and setting a positive example",
-        signals: [
-          "Manages team transitions smoothly, respecting team and individual needs",
-          "Develops best practices for conflict resolution",
-          "Ensures all group members' roles are meeting their career needs"
-        ],
-        examples: [
-          "Completed leadership training",
-          "Built a resourcing plan based on company, team, and individual goals",
-          "Prevented regretted attrition with intentional, targeted intervention"
-        ]
-      },
-      {
-        summary: "Supports the development of a signficant part of the engineering org, and widely viewed as a trusted advisor",
-        signals: [
-          "Supports and develops senior leaders",
-          "Identified leadership training opportunities for senior leadership",
-          "Pushes everyone to be as good as they can be, with empathy"
-        ],
-        examples: [
-          "Provided coaching to team leads",
-          "Devised growth plan for team leads",
-          "Advocated to execs for engineer development resources and programs"
-        ]
-      }
-    ]
+    description: "Analyse a journey map to identify and construct an information architecture.",
+    milestones: MILESTONES_SHARED
   },
 
-  ORG_DESIGN: {
-    displayName: "Org design",
+  DOMAIN_MAPPING: {
+    displayName: "Domain Mapping",
     category: "C",
-    description: "Defines processes and structures that enables the strong growth and execution of a diverse eng organization",
-    milestones: [
-      {
-        summary: "Respects and participates in processes, giving meaningful feedback to help the organization improve",
-        signals: [
-          "Reflects on meetings that leave them inspired or frustrated",
-          "Teaches others about existing processes",
-          "Actively participates and makes contributions within organizational processes"
-        ],
-        examples: [
-          "Facilitated effective meetings with empathy",
-          "Explained sprint planning format to a new hire",
-          "Provided feedback on sprint planning meeting"
-        ]
-      },
-      {
-        summary: "Identifies opportunities to improve existing processes and makes changes that positively affect the local team",
-        signals: [
-          "Defines meeting structure and cadence that meets team needs",
-          "Engages in organizational systems thinking",
-          "Advocates for improved diversity and inclusion, and proposes ideas to help"
-        ],
-        examples: [
-          "Defined sprint planning structure for small team",
-          "Improved on-call rotation scheduling",
-          "Defined standard channels for inter-team communication"
-        ]
-      },
-      {
-        summary: "Develops processes and programs to solve ongoing organizational problems",
-        signals: [
-          "Creates programs that meaningfully improve organizational diversity",
-          "Solves long-standing organizational problems",
-          "Reallocates resources to meet organizational needs"
-        ],
-        examples: [
-          "Developed 90-day plan template",
-          "Created bug-rotation program to address ongoing quality issues",
-          "Defined Frontend Guild manifesto"
-        ]
-      },
-      {
-        summary: "Thinks deeply about organizational issues and identifies hidden dynamics that contribute to them",
-        signals: [
-          "Evaluates incentive structures and their effect on execution",
-          "Analyzes existing processes for bias and shortfall",
-          "Ties abstract concerns to concrete organizational actions or norms"
-        ],
-        examples: [
-          "Connected mobile recruiting difficulties to focus on excellence",
-          "Raised leadership level discrepancies",
-          "Analyzed the hiring process for false negative potential"
-        ]
-      },
-      {
-        summary: "Leads initiatives to address issues stemming from hidden dynamics and company norms",
-        signals: [
-          "Builds programs to train leadership in desired skills",
-          "Creates new structures that provide unique growth opportunities",
-          "Leads planning and communication for reorgs"
-        ],
-        examples: [
-          "Lead efforts to increase investment in Engineering",
-          "Directed resources to meaningfully improve diversity at all levels",
-          "Reviewed and aligned salaries across similar levels."
-        ]
-      }
-    ]
+    description: "Uncover and describe relevant retail processes, jargon and best practises.",
+    milestones: MILESTONES_SHARED
   },
 
-  WELLBEING: {
-    displayName: "Wellbeing",
+  IA_PATTERNS: {
+    displayName: "Layout",
     category: "C",
-    description: "Supports the emotional well-being of group members in difficult times, and celebrates their successes",
-    milestones: [
-      {
-        summary: "Uses tools and processes to help ensure colleagues are healthy and happy",
-        signals: [
-          "Keeps confidences unless legally or morally obliged to do otherwise",
-          "Applies the reasonable person principle to others",
-          "Avoids blame and focuses on positive change"
-        ],
-        examples: [
-          "Ensured group members were taking enough vacation",
-          "Put themself in another's shoes to understand their perspective",
-          "Checked in with colleague showing signs of burnout"
-        ]
-      },
-      {
-        summary: "Creates a positive, supportive, engaging team environment for group members",
-        signals: [
-          "Sheds light on other experiences to build empathy and compassion",
-          "Validates ongoing work and sustains motivation",
-          "Proposes solutions when teams get bogged down or lose momentum"
-        ],
-        examples: [
-          "Coordinated a small celebration for a project launch",
-          "Connected tedious A|B testing project with overall company goals",
-          "Noted a team without a recent win and suggested some easy quick wins"
-        ]
-      },
-      {
-        summary: "Manages expectations across peers, leads in the org, promotes calm, and prevents consensus building",
-        signals: [
-          "Trains group members to separate stimulus from response",
-          "Maintains a pulse on individual and team morale",
-          "Helps group members approach problems with curiosity"
-        ],
-        examples: [
-          "Completed training on transference and counter transference",
-          "Completed training on compromise and negotiation techniques",
-          "Reframed a problem as a challenge, instead of a barrier, when appropriate"
-        ]
-      },
-      {
-        summary: "Advocates for the needs of teams and group members, and proactively works to calm the organization",
-        signals: [
-          "Ensures team environments are safe and inclusive, proactively",
-          "Grounds group member anxieties in reality",
-          "Tracks team retention actively and proposes solutions to strengthen it"
-        ],
-        examples: [
-          "Relieved org tension around product direction by providing extra context",
-          "Encouraged group members to focus on what they can control",
-          "Guided people through complex organizational change"
-        ]
-      },
-      {
-        summary: "Manages narratives, channels negativity into inspiration and motivation, and protects the entire team",
-        signals: [
-          "Recognizes and points out narratives when appropriate",
-          "Works to reshape narratives from victimization to ownership",
-          "Increases the psychological safety of the entire team"
-        ],
-        examples: [
-          "Converted group member from a problem haver to a problem solver",
-          "Challenged false narrative and redirected to compassion and empathy",
-          "Cultivated and championed a culture of empathy within the entire team"
-        ]
-      }
-    ]
+    description: "Organise, structure and label content, functions and features using appropriate design patterns.",
+    milestones: MILESTONES_SHARED
   },
 
-  ACCOMPLISHMENT: {
-    displayName: "Accomplishment",
+  VOCABULARY: {
+    displayName: "Vocabulary",
     category: "C",
-    description: "Inspires day to day excellence, maximises potential and effectively resolves performance issues with compassion",
-    milestones: [
-      {
-        summary: "Helps individuals identify blockers and helps them identify next steps for resolution",
-        signals: [
-          "Notices when someone is stuck and reaches out",
-          "Helps others break down problems into feasible, tangible next steps",
-          "Talks through problems non-judgmentally"
-        ],
-        examples: [
-          "Completed training on diagnosing problems",
-          "Unblocked a group member",
-          "Reinforces and affirms positive feedback for good work"
-        ]
-      },
-      {
-        summary: "Helps individuals resolve difficult performance issues, with insight, compassion, and skill",
-        signals: [
-          "Gathers context outside the immediate problem",
-          "Recognizes issues within local environment and suggests change",
-          "Works to encourage ownership of actions and responsibilities"
-        ],
-        examples: [
-          "Completed training on decision making",
-          "Convinced a team member to solve a problem directly, rather than doing it for them",
-          "Gave honest feedback about poor performance, with compassion"
-        ]
-      },
-      {
-        summary: "Intervenes in long-standing performance issues with targeted behavior change or performance plans",
-        signals: [
-          "Aggregates signals of poor performance and creates process for improvement",
-          "Investigates motivation and externalities for consistent poor performance",
-          "Puts together comprehensive, achievable performance plans"
-        ],
-        examples: [
-          "Worked with group member to address persistent communication failures",
-          "Arranged a transfer to another team, resulting in improved performance",
-          "Managed group member closely to maximise chances of PIP success"
-        ]
-      },
-      {
-        summary: "Mediates escalated situations, empowers underperforming teams, and resolves conflict",
-        signals: [
-          "Recognizes heightened situations and toxic or aggressive interactions",
-          "Inserts themself into conflict where appropriate to calm and mediate",
-          "Encourages open dialog and builds trust between parties in conflict"
-        ],
-        examples: [
-          "Empowered a team to drive forward amidst uncertainty",
-          "Protected team from externalities so they could focus on goals",
-          "Mediated sit-down between team members to address tension"
-        ]
-      },
-      {
-        summary: "Resolves complex organizational dysfunction, or persistent conflict at senior levels",
-        signals: [
-          "Takes control of dysfunctional teams to organise chaos",
-          "Repairs broken team dynamics and builds harmony",
-          "Presides over a well-oiled team of teams"
-        ],
-        examples: [
-          "Turned around the performance of a problematic team",
-          "De-escalated serious tensions between teams",
-          "Rebuilt trust between senior team leads"
-        ]
-      }
-    ]
+    description: "Develop, use and maintain a controlled app vocabulary.",
+    milestones: MILESTONES_SHARED
   },
 
-  MENTORSHIP: {
-    displayName: "Mentorship",
-    category: "D",
-    description: "Provides support to colleagues, spreads knowledge, and develops the team outside formal reporting structures",
-    milestones: [
-      {
-        summary: "Informally mentors individuals in an ad-hoc way, supports new hires, and conveys institutional knowledge",
-        signals: [
-          "Makes themself available for informal support and advice",
-          "Acts as sounding board for peers and more junior members",
-          "Provides sound advice when asked"
-        ],
-        examples: [
-          "Acted as an onboarding buddy",
-          "Paired with an engineer to help them with an unfamiliar area",
-          "Helped a colleague understand their feelings"
-        ]
-      },
-      {
-        summary: "Mentors people proactively, and guides people to realizations rather than providing the answer",
-        signals: [
-          "Takes time to explain concepts and best practices",
-          "Asks questions to illuminate concepts, rather than stating them",
-          "Allows others to lead efforts when it will help their development"
-        ],
-        examples: [
-          "Shared interesting article with a team member to help with their growth",
-          "Offered unprompted feedback to help growth, with empathy",
-          "Lead from behind to support someone new to a leadership role"
-        ]
-      },
-      {
-        summary: "Teaches small groups of engineers and contributes to Vend's shared knowledge base",
-        signals: [
-          "Avoids siloing information when it can be usefully shared with others",
-          "Works to increase the bus factor of systems",
-          "Finds tools that work best for a team member's personality"
-        ],
-        examples: [
-          "Gave a lunch'n'learn presentation on Go",
-          "Wrote Wiki page on how to run a complex db migration",
-          "Answered multiple Confluence Questions with clarity"
-        ]
-      },
-      {
-        summary: "Encourages people to mentor each other, and creates ways for them to do so",
-        signals: [
-          "Defines an entire curriculum for a discipline",
-          "Draws positive attention to well-modeled mentor and teaching behaviours",
-          "Creates lunch-n-learn series and lines up speakers"
-        ],
-        examples: [
-          "Created and lead Vend's Frontend platform group",
-          "Organized an Eng All Hands with an outside speaker",
-          "Designed and taught Go microservices curriculum"
-        ]
-      },
-      {
-        summary: "Instills and promotes a culture of learning and development within the entire engineering team",
-        signals: [
-          "Sets incentive structures to recognise and reward mentorship",
-          "Empowers team members to develop themselves",
-          "Role models productive and healthy mentor relationships"
-        ],
-        examples: [
-          "Instituted the professional education budget for engineers",
-          "Mentored mentors",
-          "Took team members on visits to SF tech leaders"
-        ]
-      }
-    ]
+  IA_PLANNING: {
+    displayName: "Delivery Strategy",
+    category: "C",
+    description: "Breakdown large IA changes into small and comprehensible deliverables, based upon resource constraints.",
+    milestones: MILESTONES_SHARED
   },
 
-  EVANGELISM: {
-    displayName: "Evangelism",
+  FLOWS: {
+    displayName: "Flows",
     category: "D",
-    description: "Promotes Vend to the outside world and establishes it as an attractive and thoughtful place to work",
-    milestones: [
-      {
-        summary: "Represents Vend well externally, and influences individuals positively",
-        signals: [
-          "Shares personal and organizational successes with their network",
-          "Attends Vend-hosted events and talks with guests",
-          "Communicates genuine and honest excitement about their work externally"
-        ],
-        examples: [
-          "Shared a Vend product launch post on Facebook",
-          "Acted as a guide for a non-friend visitor to the office",
-          "Supported PR efforts by giving a quote or having a photo taken"
-        ]
-      },
-      {
-        summary: "Participates more centrally in small events, and takes simple actions that positively influence groups of people",
-        signals: [
-          "Takes meaningful action to introduce people to Vend",
-          "Joined public Slack group and represented Vend appropriately, and well",
-          "Organizes positive small- or medium-sized events that bring people to Vend"
-        ],
-        examples: [
-          "Volunteered as a helper for Summer of Tech workshops",
-          "Organized a short tour of the office by college students",
-          "Talked at a Women Who Code event hosted at Vend"
-        ]
-      },
-      {
-        summary: "Works hard to positively influence large groups of people on their views of Vend",
-        signals: [
-          "Mentors or participates in a high visibility way in an external organization",
-          "Builds fruitful partnerships with external organizations",
-          "Writes blog posts about Vend that receive moderate traffic"
-        ],
-        examples: [
-          "Represented Vend on a panel at a conference of industry experts",
-          "Established close ties with Callaghan",
-          "Built a durable, long-standing org relationship with industry bodies"
-        ]
-      },
-      {
-        summary: "Establishes Vend as an great, innovative company and workplace to the whole industry",
-        signals: [
-          "Establishes themself as an industry thought leader who attracts talent",
-          "Publishes material about Vend's organizational or technical innovations",
-          "Leverages significant following to evangelise Vend"
-        ],
-        examples: [
-          "Published a paper on Vend technology in a peer-reviewed journal",
-          "Authored press release on HTTPoxy",
-          "Published a great technical post on the Vend engineering blog"
-        ]
-      },
-      {
-        summary: "Introduces Vend in a positive light to a wider audience outside the industry",
-        signals: [
-          "Delivers key messages to broad, mainstream audiences",
-          "Influences people with large audiences to talk about Vend positively",
-          "Drives recognition and adoption of Vend in significant numbers"
-        ],
-        examples: [
-          "Published or interviewed in a mainstream newspaper or website outside tech",
-          "Keynoted a conference with international attention",
-          "Represented Vend in national televised media"
-        ]
-      }
-    ]
+    description: "Understand the benefits of different user interface models and use them appropriately (for example: knowing when to force a user down a guided path with a wizard or modal, or when we can let them go their own way).",
+    milestones: MILESTONES_SHARED
   },
 
-  RECRUITING: {
-    displayName: "Recruiting",
+  PATTERNS: {
+    displayName: "Patterns",
     category: "D",
-    description: "Strengthens Vend's team by bringing in excellent staff members",
-    milestones: [
-      {
-        summary: "Brings new candidates into the pipeline and understands how to evaluate candidates at Vend",
-        signals: [
-          "Reviews existing network for hiring leads regularly",
-          "Shadows interviews to gain familiarity with process",
-          "Reviews current job postings regularly"
-        ],
-        examples: [
-          "Completed interview calibration",
-          "Set up casual sessions to practice asking questions",
-          "Referred appropriate individuals for open positions"
-        ]
-      },
-      {
-        summary: "Interviews regularly, helps the team make meaningful hiring decisions, and helps build a diverse pipeline",
-        signals: [
-          "Provides clear, objective feedback on candidates (we should have an interview rubric)",
-          "Interviews candidates with empathy and treats them all with equal respect",
-          "Researches approaches for sourcing candidates and diversifying hiring"
-        ],
-        examples: [
-          "Added observable evidence for interview feedback",
-          "Started a monthly brunch for candidates to meet Vend employees",
-          ""
-        ]
-      },
-      {
-        summary: "Maintains and strengthens the integrity of the current process, and regularly brings in great candidates",
-        signals: [
-          "Teaches new interviewers how to interview with empathy",
-          "Models great interview technique and feedback when shadowed",
-          "Reverse shadows trainees and helps calibrate their feedback"
-        ],
-        examples: [
-          "Wrote fantastic new interview questions that are measurable and insightful",
-          "Brought candidates into our pipeline proactively, with a high conversion rate",
-          "Proposed useful, tangible improvements to the interview process"
-        ]
-      },
-      {
-        summary: "Actively contributes to and leads hiring decisions, and goes to great lengths to source great candidates",
-        signals: [
-          "Documents subtle cues in interviews that indicate values alignment",
-          "Makes hiring decisions, resolving discrepancies between conflicting reports",
-          "Top-grades candidates and teases out character traits"
-        ],
-        examples: [
-          "Planned engineering summit on interview process and training",
-          "Organized and lead Vend's presence at a recruitment fair",
-          "Started internship program"
-        ]
-      },
-      {
-        summary: "Sets recruitment strategy, invests in long-term relationships for critical roles, and recruits at scale",
-        signals: [
-          "Sets the tone, policy and goals around building a diverse, high-quality team",
-          "Identifies and brings in promising acquisitions",
-          "Tracks industry activity, identifying opportunities for critical roles"
-        ],
-        examples: [
-          "Talked with a senior candidate over many months to fill a critical role",
-          "Organized efforts around convincing acquired engineers to join and stay",
-          "Set goals, then tracked and reported metrics on team demographics over time"
-        ]
-      }
-    ]
+    description: "Use the correct component from the pattern library to provide affordances and shape the user experience e.g., choosing the correct control for an interface, such as segment controller instead of a radio button.",
+    milestones: MILESTONES_SHARED
   },
 
-  COMMUNITY: {
-    displayName: "Community",
+  HCI: {
+    displayName: "Best Practise",
     category: "D",
-    description: "Builds community internally, gives of themself to the team, and champions and extols company values",
-    milestones: [
-      {
-        summary: "Is available and present on current teams, and works to contribute positively to company culture",
-        signals: [
-          "Participates in team activities and offsites",
-          "Treats colleagues and clients with respect",
-          "Joins groups or committees outside regular duties"
-        ],
-        examples: [
-          "Joined and actively participated in the Frontend platform group",
-          "Brought a small gift back from vacation for the team",
-          "Wrote entertaining and informative incident review updates on Confluence"
-        ]
-      },
-      {
-        summary: "Steps up, builds connectedness, and takes concrete actions to promote an inclusive culture",
-        signals: [
-          "Makes space for others to participate",
-          "Collaborates with other engineers outside direct responsibilities",
-          "Finds ways to ramp up and engage new hires quickly"
-        ],
-        examples: [
-          "Created Fuck Yeah Fridays",
-          "Brought shy and introverted people into a dominant conversation",
-          ""
-        ]
-      },
-      {
-        summary: "Contributes to improving team relatedness, and helps build a culture of lending support",
-        signals: [
-          "Takes on additional on-call shifts at short notice",
-          "Pitches in to help other teams hit deadlines, without missing own deadlines",
-          "Uses position to raise difficult issues on someone's behalf"
-        ],
-        examples: [
-          "Handles on-call with little support while still contributing to projects",
-          "Started and drove the diversity and ally skills training",
-          "Stayed positive and improved team morale during period after layoffs"
-        ]
-      },
-      {
-        summary: "Exemplifies selflessness for the team without compromising responsibilities, and lifts everyone up",
-        signals: [
-          "Goes above and beyond on the Watch, serving the team without complaint",
-          "Implements concrete programs to signficantly improve team inclusivity",
-          "Takes on large amounts of tedious grunt work for the team without being asked"
-        ],
-        examples: [
-          "Devoted large amount of time to helping outside direct responsibilities",
-          "Refactored a multitude of legacy PHP issues",
-          "Acted as sole maintainer of Jenkins for years"
-        ]
-      },
-      {
-        summary: "Lives the company values, guards positive culture, and defines policies that support relatedness between teams",
-        signals: [
-          "Brings separate teams together to build relatedness",
-          "Holds individuals, teams, and leadership accountable to Vend's values",
-          "Sets the tone, policy, and goals around maintaining an inclusive company"
-        ],
-        examples: [
-          "Organized summer BBQ for the whole engineering org",
-          "Devised, delivered and acted on findings from a CultureAmp survey",
-          "Challenged and corrected exclusionary behaviour or policies"
-        ]
-      }
-    ]
+    description: "Understand established and evolving standards, as well as best-practises for human-computer interactions, and be able to express them in our design language.",
+    milestones: MILESTONES_SHARED
+  },
+
+  MOTION: {
+    displayName: "Motion",
+    category: "D",
+    description: "Simplify the user interface by using animations where appropriate.",
+    milestones: MILESTONES_SHARED
+  },
+
+  IMPLEMENTATION: {
+    displayName: "Medium",
+    category: "D",
+    description: "Understand the opportunities and limitations of the technology that the design solution will be expressed in, and work with developers to determine its implementation.",
+    milestones: MILESTONES_SHARED
+  },
+
+  DOCUMENTATION: {
+    displayName: "Documentation",
+    category: "D",
+    description: "Document requirements and explain the expectations around an interaction.",
+    milestones: MILESTONES_SHARED
+  },
+
+  FUNDAMENTALS: {
+    displayName: "Visual Design",
+    category: "E",
+    description: "Use fundamental principles of visual design (like contrast, alignment, repetition and proximity) to de-clutter user interfaces.",
+    milestones: MILESTONES_SHARED
+  },
+
+  PRODUCTION: {
+    displayName: "Production",
+    category: "E",
+    description: "Understand and use our typography, icon, grid and colour systems to lay out pages.",
+    milestones: MILESTONES_SHARED
+  },
+
+  ILLUSTRATION: {
+    displayName: "Illustration",
+    category: "E",
+    description: "Create illustrations that fit within our guidelines to reinforce and extend our messaging.",
+    milestones: MILESTONES_SHARED
+  },
+
+  DESIGN_LANGUAGE: {
+    displayName: "Design Language",
+    category: "E",
+    description: "Understand, use and evolve the common brand and design language and explain why it is important.",
+    milestones: MILESTONES_SHARED
+  },
+
+  WRITE: {
+    displayName: "Copy Writing",
+    category: "F",
+    description: "Create and edit macro and micro copy.",
+    milestones: MILESTONES_SHARED
+  },
+
+  GUIDE: {
+    displayName: "Guiding",
+    category: "F",
+    description: "Choose the right kind of help for the situation: for example, decide between a tutorial, manual, contextual help or micro-copy.",
+    milestones: MILESTONES_SHARED
+  },
+
+  STYLE_GUIDE: {
+    displayName: "Style",
+    category: "F",
+    description: "Understand, use and evolve the common content and writing style, and explain why it is important.",
+    milestones: MILESTONES_SHARED
+  },
+
+  INTEGRATE: {
+    displayName: "Harmony",
+    category: "F",
+    description: "Establish harmony between written and visual communication.",
+    milestones: MILESTONES_SHARED
+  },
+
+  FIDELITY: {
+    displayName: "Fidelity",
+    category: "G",
+    description: "Choose the appropriate fidelity of prototype to match that of the hypothesis.",
+    milestones: MILESTONES_SHARED
+  },
+
+  FAST_ITERATION: {
+    displayName: "Speed",
+    category: "G",
+    description: "Explain the benefits of fast iteration in the discovery phase.",
+    milestones: MILESTONES_SHARED
+  },
+
+  BREADTH: {
+    displayName: "Explore",
+    category: "G",
+    description: "Explore multiple approaches to a problem before deciding on a solution.",
+    milestones: MILESTONES_SHARED
+  },
+
+  PROTOTYPE: {
+    displayName: "Prototype",
+    category: "G",
+    description: "Create interactive, shareable prototypes to demonstrate and test a design solution.",
+    milestones: MILESTONES_SHARED
+  },
+
+  SCHEDULING: {
+    displayName: "Scheduling",
+    category: "H",
+    description: "Plan and schedule work to prioritise and maximise the efficiency of delivery.",
+    milestones: MILESTONES_SHARED
+  },
+
+  STAKEHOLDER_MANAGEMENT: {
+    displayName: "Stakeholder Management",
+    category: "H",
+    description: "Engage and maintain communication with stakeholders, and manage their expectations.",
+    milestones: MILESTONES_SHARED
+  },
+
+  CRITIQUE: {
+    displayName: "Critique",
+    category: "H",
+    description: "Constructively critique the work of team members.",
+    milestones: MILESTONES_SHARED
+  },
+
+  PROFESSIONAL_DEVELOPMENT: {
+    displayName: "Professional Development",
+    category: "H",
+    description: "Promote and support the ongoing professional development of the team.",
+    milestones: MILESTONES_SHARED
+  },
+
+  BOND: {
+    displayName: "Belonging",
+    category: "H",
+    description: "Cultivate a team with strong interpersonal relationships.",
+    milestones: MILESTONES_SHARED
+  },
+
+  CULTURE: {
+    displayName: "Design Culture",
+    category: "H",
+    description: "Grow and sustain a world-class and inclusive design culture.",
+    milestones: MILESTONES_SHARED
+  },
+
+  ADVOCATE: {
+    displayName: "Advocate",
+    category: "H",
+    description: "Argue the cost-benefit of user experience and design activities to the business, and measure and monitor their effects on the company's success.",
+    milestones: MILESTONES_SHARED
+  },
+
+  EVANGELISE: {
+    displayName: "Evangelise",
+    category: "H",
+    description: "Promote the value of design thinking, and grow the user-experience competency of every person in the company.",
+    milestones: MILESTONES_SHARED
   }
+
 };
 
 export const trackIds: TrackId[] = Object.keys(tracks);
@@ -1313,7 +615,7 @@ export const totalPointsFromMilestoneMap = (
 export const categoryColorScale = d3
   .scaleOrdinal()
   .domain(categoryIds)
-  .range(["#00abc2", "#428af6", "#e1439f", "#e54552"]);
+  .range(["#D77173", "#F49B8C", "#F2C17B", "#678E98", "#99C8D4", "#AA88B5", "#62676F", "#446A81"]);
 
 export const titles = [
   { label: "Engineer I", minPoints: 0, maxPoints: 16 },
